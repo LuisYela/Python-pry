@@ -50,5 +50,30 @@ def crear_dato():
         {'message':'error_faltan_datos'}
     return {'message':'recibido'}
 
+@app.route('/pruebas', methods=['POST'])
+def crear_dato():
+    #
+    print(request.json)
+    Nombre=request.json['Nombre']
+    Departamento=request.json['Departamento']
+    Edad=request.json['Edad']
+    Forma_contagio=request.json['Forma_contagio']
+    Estado=request.json['Estado']
+
+    if Nombre and Departamento and Edad and Forma_contagio and Estado:
+        #
+        respose={
+            'id':str(id),
+            'Nombre':Nombre,
+            'Departamento':Departamento,
+            'Edad':Edad,
+            'Forma_contagio':Forma_contagio,
+            'Estado':Estado
+        }
+        return respose
+    else:
+        {'message':'error_faltan_datos'}
+    return {'message':'recibido'}
+
 if __name__ == "__main__":
     app.run(port=5000,debug=True)
