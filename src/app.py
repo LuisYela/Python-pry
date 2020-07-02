@@ -3,9 +3,9 @@ from flask_pymongo import PyMongo
 import redis
 
 app=Flask(__name__)
-app.config["MONGO_URI"]='mongodb://34.72.154.57:27017/datosCorona'
+app.config["MONGO_URI"]='mongodb://35.223.184.245:27017/datosCorona'
 mongo=PyMongo(app)
-cliente=redis.Redis(host='34.72.154.57', port=6379)
+cliente=redis.Redis(host='35.223.184.245', port=6379)
 
 @app.route('/datos', methods=['POST'])
 def crear_dato():
@@ -51,7 +51,7 @@ def crear_dato():
     return {'message':'recibido'}
 
 @app.route('/pruebas', methods=['POST'])
-def crear_dato():
+def preba_crear_dato():
     #
     print(request.json)
     Nombre=request.json['Nombre']
