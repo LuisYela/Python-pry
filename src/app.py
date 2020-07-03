@@ -75,5 +75,10 @@ def preba_crear_dato():
         {'message':'error_faltan_datos'}
     return {'message':'recibido'}
 
+@app.route('/')
+def saludar():
+    #
+    return "Hola desde el servidor"
+
 if __name__ == "__main__":
-    app.run(port=5000,debug=True)
+    app.run(host='0.0.0.0', port=80,debug=True)
